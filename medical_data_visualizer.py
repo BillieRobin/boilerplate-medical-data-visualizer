@@ -54,7 +54,9 @@ def draw_heat_map():
 
     # Draw heat map with sns.heatmap()
     sns.heatmap(corr, annot=True, fmt=".1f", mask=mask, cmap='coolwarm', linewidths=0.5, ax=ax)
-
+    
+    fig.savefig('heatmap.png')
+    return fig
 """
 # 1
 df = None
@@ -107,7 +109,8 @@ def draw_heat_map():
     # 15
 """
 
-
+"""
     # 16
     fig.savefig('heatmap.png')
     return fig
+"""
