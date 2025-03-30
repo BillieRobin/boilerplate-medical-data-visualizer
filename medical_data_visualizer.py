@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+
 # Import data from CSV file
 df = pd.read_csv('medical_examination.csv')
 
@@ -24,6 +25,9 @@ def draw_cat_plot():
 
     # Create categorical plot using sns.catplot()
     cat_plot = sns.catplot(x="variable", hue="value", col="cardio", data=df_cat, kind="count")
+
+    # Set ylabel to 'total' as expected by the test
+    cat_plot.set_axis_labels("variable", "total")
 
     # Get figure for output
     fig = cat_plot.fig
@@ -60,6 +64,8 @@ def draw_heat_map():
     # Save figure (do not modify)
     fig.savefig('heatmap.png')
     return fig
+
+
 
 
     """
