@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-
 # Import data from CSV file
 df = pd.read_csv('medical_examination.csv')
 
@@ -23,8 +22,11 @@ def draw_cat_plot():
     # Rename columns for clarity (expected name is 'variable')
     df_cat = df_cat.rename(columns={'variable': 'variable', 'value': 'value'})
 
+    # Define the correct order for x-axis labels
+    variable_order = ['active', 'alco', 'cholesterol', 'gluc', 'overweight', 'smoke']
+
     # Create categorical plot using sns.catplot()
-    cat_plot = sns.catplot(x="variable", hue="value", col="cardio", data=df_cat, kind="count")
+    cat_plot = sns.catplot(x="variable", hue="value", col="cardio", data=df_cat, kind="count", order=variable_order)
 
     # Set ylabel to 'total' as expected by the test
     cat_plot.set_axis_labels("variable", "total")
@@ -64,6 +66,8 @@ def draw_heat_map():
     # Save figure (do not modify)
     fig.savefig('heatmap.png')
     return fig
+
+
 
 
 
